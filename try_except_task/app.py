@@ -1,4 +1,5 @@
 import re
+from typing import NoReturn
 # Q1. Basic Exception Handling
 # Write a Python program that:
 
@@ -352,4 +353,20 @@ import re
 
 
 # ---------------------------------------------------------------------------------------------------
-    
+
+
+# No Return
+
+def no_return() ->  NoReturn:
+    print("Hello")
+
+print(no_return())
+
+def crash() -> NoReturn:
+    raise RuntimeError()
+
+def foo():
+    crash()
+    print("This line is unreachable!")  # ❌ Tool will warn: unreachable code
+
+foo()
